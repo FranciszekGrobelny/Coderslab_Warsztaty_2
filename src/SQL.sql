@@ -24,5 +24,14 @@ CREATE TABLE user_group(
     PRIMARY KEY (id)
 );
 
-ALTER TABLE users ADD COLUMN user_group_id INT;
-ALTER TABLE  users ADD FOREIGN KEY (user_group_id) REFERENCES user_group(id);
+DROP TABLE  excercise;
+
+CREATE TABLE users(
+    id INT AUTO_INCREMENT,
+    userName VARCHAR(255),
+    email VARCHAR(255) UNIQUE ,
+    password VARCHAR(245),
+    user_group_id INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY(user_group_id) REFERENCES user_group(id)
+);
