@@ -3,13 +3,13 @@ package pl.coderslab.models;
 public class Exercise {
     private int id;
     private String title;
-    private String decription;
+    private String description;
 
     public Exercise(){};
 
     public Exercise(String title, String decription) {
         this.title = title;
-        this.decription = decription;
+        this.description = decription;
     }
 
     public int getId() {
@@ -29,11 +29,11 @@ public class Exercise {
     }
 
     public String getDecription() {
-        return decription;
+        return description;
     }
 
     public void setDecription(String decription) {
-        this.decription = decription;
+        this.description = decription;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Exercise {
         return "Exercise{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", decription='" + decription + '\'' +
+                ", decription='" + description + '\'' +
                 '}';
     }
 }
