@@ -1,17 +1,18 @@
 package pl.coderslab.models;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Solution {
     private int id;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private LocalDate created;
+    private LocalDate updated;
     private String description;
 
     public Solution(){};
 
-    public Solution(LocalDateTime created, LocalDateTime updated, String description) {
+    public Solution(LocalDate created, LocalDate updated, String description) {
         this.created = created;
         this.updated = updated;
         this.description = description;
@@ -25,19 +26,19 @@ public class Solution {
         this.id = id;
     }
 
-    public LocalDateTime getCreated() {
+    public LocalDate getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDateTime created) {
+    public void setCreated(LocalDate created) {
         this.created = created;
     }
 
-    public LocalDateTime getUpdated() {
+    public LocalDate getUpdated() {
         return updated;
     }
 
-    public void setUpdated(LocalDateTime updated) {
+    public void setUpdated(LocalDate updated) {
         this.updated = updated;
     }
 
