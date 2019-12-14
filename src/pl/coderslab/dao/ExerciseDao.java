@@ -8,8 +8,7 @@ import java.util.Arrays;
 
 public class ExerciseDao {
 
-    private static final String URL =
-            "jdbc:mysql://localhost:3306/warsztaty_2?useSSL=false&characterEncoding=utf8";
+    private static final String URL = "jdbc:mysql://localhost:3306/warsztaty_2?useSSL=false&characterEncoding=utf8";
     private static  final String USER = "root";
     private static  final String PASSWORD = "coderslab";
     private static final String CREATE_EXERCISE_QUERY = "INSERT INTO exercise(title, description) VALUES(?,?)";
@@ -53,7 +52,7 @@ public class ExerciseDao {
         }
         return null;
     }
-    public Exercise update(Exercise exercise){
+    public void update(Exercise exercise){
         try {Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
             PreparedStatement statement = connection.prepareStatement(UPDATE_EXERCISE_QUERY);
             statement.setString(1,exercise.getTitle());
@@ -61,8 +60,8 @@ public class ExerciseDao {
             statement.setInt(3,exercise.getId());
         } catch (SQLException e) {
             e.printStackTrace();
+
         }
-        return null;
     }
     public void delete(Exercise exercise){
         try {Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -94,7 +93,7 @@ public class ExerciseDao {
         return exercises;
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

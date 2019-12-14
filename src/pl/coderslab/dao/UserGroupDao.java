@@ -6,8 +6,7 @@ import java.sql.*;
 import java.util.Arrays;
 
 public class UserGroupDao {
-    private static final String URL =
-            "jdbc:mysql://localhost:3306/warsztaty_2?useSSL=false&characterEncoding=utf8";
+    private static final String URL = "jdbc:mysql://localhost:3306/warsztaty_2?useSSL=false&characterEncoding=utf8";
     private static  final String USER = "root";
     private static  final String PASSWORD = "coderslab";
     private static final String CREATE_USER_GROUP_QUERY =
