@@ -109,15 +109,58 @@ public class App {
 
     public static void userAdminister(){
         UserDao userDao = new UserDao();
-        User[] all = userDao.findAll();
-        for(User users : all){
-            System.out.println(users);
-        }
+        User user=new User();
         Scanner scanner = new Scanner(System.in);
-        String choice = null;
+        Scanner scanner2 = new Scanner(System.in);
+        String choice = null, userName,email,password;
         while(!"quit".equals(choice)){
+            User[] all = userDao.findAll();
+            for(User users : all){
+                System.out.println(users);
+            }
             System.out.print("Wybierz jedna z opcji(add, edit, delete, quit): ");
             choice =scanner.nextLine();
+
+            if("add".equals(choice)){
+                System.out.print("Podaj nazwe uzytkownika:");
+                userName = scanner.nextLine();
+                System.out.print("Podaj adres e-mail:");
+                email = scanner.nextLine();
+                System.out.print("Podaj haslo:");
+                password = scanner.nextLine();
+                User user2 = new User(userName,email,password);
+                userDao.create(user2);
+            }else if("edit".equals(choice)){
+                System.out.print("Podaj nr id dla ktorego chcesz zmienic dane:");
+                int id=scanner.nextInt();
+                user=userDao.read(id);
+                System.out.println("Zmiana nazwy wybierz 1");
+                System.out.println("Zmiana e-mailu wybierz 2");
+                System.out.println("Zmiana hasla wybierz 3");
+                String choice2=scanner2.nextLine();
+                if("1".equals(choice2)){
+                    System.out.print("Podaj nowa nazwe:");
+                    userName=scanner2.nextLine();
+                    user.setUserName(userName);
+                    userDao.update(user);
+
+                }else if("2".equals(choice2)){
+                    System.out.print("Podaj nowy email:");
+                    email=scanner2.nextLine();
+                    user.setEmail(email);
+                    userDao.update(user);
+
+                }else if("3".equals(choice2)){
+                    System.out.print("Podaj nowe haslo:");
+                    password=scanner2.nextLine();
+                    user.setPassword(password);
+                    userDao.update(user);
+                }
+            }else if("delete".equals(choice)){
+                System.out.print("Podaj numer id, aby usunac uzytkownika:");
+                int id=scanner.nextInt();
+                userDao.delete(id);
+            }
         }
     }
 }
